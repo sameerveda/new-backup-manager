@@ -1,0 +1,28 @@
+def appDir() {
+  file(System.env.SAM_PROGRAMS+'/backup/backup.beta/bin')
+}
+
+ext {
+  appdir   = appDir()
+  FEATHER  = 'org.codejargon.feather:feather:+'
+  INJECT   = 'javax.inject:javax.inject:1'
+  HPPC     =  'com.carrotsearch:hppc:0.8.1'
+  B_LOGGER = 'org.apache.logging.log4j:log4j-api:2.11.2'
+  JSON     = 'org.json:json:20180813'
+  GSON     = 'com.google.code.gson:gson:2.8.6'
+  FASTUTIL = 'it.unimi.dsi:webgraph-big:3.5.2'
+  MY_UTILS = files('myutils.jar')
+  COMMONS_COLLECTIONS = 'org.apache.commons:commons-collections4:4.4'
+}
+
+[
+'api',
+'config.base',
+'config.json',
+'drive-link',
+'z-impl',
+'z-view', 
+'walker.impl',
+'transferer.impl'].each {
+  ext["B_${it.toUpperCase().replace('.', '_').replace('-', '_')}"] = files("../${it}/build/libs/backup-manager.${it}.jar");
+}

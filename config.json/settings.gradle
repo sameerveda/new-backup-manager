@@ -1,0 +1,6 @@
+[':api', ':config.base'].each {
+  include(it)
+  project(it).projectDir = file('../' + (it - ':'))
+}
+
+rootProject.name = 'config.json'

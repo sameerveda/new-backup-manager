@@ -1,0 +1,29 @@
+plugins {
+    id 'java-library'
+}
+
+apply from: '../extra.gradle'
+
+repositories {
+    jcenter()
+}
+
+archivesBaseName = 'backup-manager.'+project.name;
+
+ext.JUNIT_VERSION = '5.3.2'
+ext.TRUTH_VERSION = '0.42'
+
+dependencies {
+  [B_API, B_DRIVE_LINK, B_CONFIG_BASE, B_CONFIG_JSON, files('impl-myutils.jar'), FEATHER, B_LOGGER, JSON].each {
+    implementation(it)
+  }
+  
+  testImplementation 'com.thedeanda:lorem:2.1'
+  testImplementation 'org.junit.jupiter:junit-jupiter-api:'+JUNIT_VERSION
+  
+  // testImplementation 'org.junit.jupiter:junit-jupiter-params:'+JUNIT_VERSION
+   testRuntime 'org.junit.jupiter:junit-jupiter-engine:'+JUNIT_VERSION
+   
+  // testImplementation 'com.google.truth:truth:'+TRUTH_VERSION
+  //  testImplementation 'com.google.truth.extensions:truth-java8-extension:'+TRUTH_VERSION
+}

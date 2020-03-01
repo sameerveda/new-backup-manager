@@ -1,0 +1,18 @@
+{
+  "tabs": [
+    {
+    "disable": true,
+      "class": "sam.backup.manager.view.backup.BackupViews",
+      "title": "Backups"
+    },
+    {
+    "disable": true,
+      "class": "sam.backup.manager.view.list.ListsViews",
+      "title": "Lists"
+    },
+    {
+      "class": "sam.backup.manager.view.tabs.AboutDriveView",
+      "title": "Drive Properties"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+['api'].each {
+   include(':'+it)
+   project(':'+it).projectDir = file('../'+it)
+}
+
+rootProject.name = 'walker.impl'

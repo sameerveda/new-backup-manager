@@ -1,0 +1,10 @@
+.listing-view {
+	-fx-background-color: white;
+	-fx-spacing:5;
+	-fx-padding:5;
+	-fx-border-width: 0 0 1 0;
+	-fx-border-color: black;
+}
+.listing-view .header {
+	-fx-font-size: 1.2em;
+}

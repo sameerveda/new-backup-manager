@@ -1,0 +1,27 @@
+plugins {
+    id 'java-library'
+}
+
+apply from: '../extra.gradle'
+
+repositories {
+    jcenter()
+}
+
+archivesBaseName = 'backup-manager.'+project.name;
+
+dependencies {
+  [':api'].each {
+    compileOnly(project(it)) {
+       transitive = false
+    }
+  }
+  [
+  // B_API, MY_UTILS,
+  // HPPC, 
+  INJECT,
+  B_LOGGER
+  ].each {
+    compileOnly(it)
+  }
+}
